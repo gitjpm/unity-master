@@ -22,7 +22,7 @@ public struct DatosArma
 
     public override string ToString()
     {
-        return $"Nombre del arma: {nombre}, Daño: {danyo}, Tipo: {tipo}";
+        return $"Nombre del arma: {nombre}, Danyo: {danyo}, Tipo: {tipo}";
     }
 }
 
