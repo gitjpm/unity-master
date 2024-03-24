@@ -23,7 +23,7 @@ public class ZigZagScript : MonoBehaviour
                 for (int x = 0; x < lado; x++)
                 {
                     GameObject cubo = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    cubo.transform.position = new Vector3(x, 0, z);
+                    cubo.transform.position = new Vector3(x * separacion, 0, z * separacion);
                     yield return new WaitForSeconds(intervalo);
                 }
             }
@@ -32,7 +32,7 @@ public class ZigZagScript : MonoBehaviour
                 for (int x = lado - 1; x >= 0; x--)
                 {
                     GameObject cubo = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    cubo.transform.position = new Vector3(x, 0, z);
+                    cubo.transform.position = new Vector3(x * separacion, 0, z * separacion);
                     yield return new WaitForSeconds(intervalo);
                 }
             }
