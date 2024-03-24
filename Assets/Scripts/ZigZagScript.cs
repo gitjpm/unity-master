@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ZigZagScript : MonoBehaviour
@@ -7,14 +6,7 @@ public class ZigZagScript : MonoBehaviour
     public int lado;
     public float separacion;
     public float intervalo;
-
-    public enum direccion
-    {
-        IZQUIERDA,
-        ARRIBA,
-        DERECHA,
-        ABAJO
-    };
+   
 
     // Start is called before the first frame update
     void Start()
@@ -32,8 +24,9 @@ public class ZigZagScript : MonoBehaviour
             {
                 for (int x = 0; x < lado; x++)
                 {
-                    GameObject cubo = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    cubo.transform.position = new Vector3(x * separacion, 0, z * separacion);
+                    CrearCubo(x, 0, z);
+                    // GameObject cubo = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    // cubo.transform.position = new Vector3(x * separacion, 0, z * separacion);
                     yield return new WaitForSeconds(intervalo);
                 }
             }
@@ -41,8 +34,9 @@ public class ZigZagScript : MonoBehaviour
             {
                 for (int x = lado - 1; x >= 0; x--)
                 {
-                    GameObject cubo = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    cubo.transform.position = new Vector3(x * separacion, 0, z * separacion);
+                    CrearCubo(x, 0, z);
+                    //GameObject cubo = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    //cubo.transform.position = new Vector3(x * separacion, 0, z * separacion);
                     yield return new WaitForSeconds(intervalo);
                 }
             }
@@ -103,6 +97,9 @@ public class ZigZagScript : MonoBehaviour
     {
         GameObject cubo = GameObject.CreatePrimitive(PrimitiveType.Cube);
         cubo.transform.position = new Vector3(x * separacion, y * separacion, z * separacion);
+        cubo.AddComponent<EscalarAlturaCubo>();
     }
+
+    
 
 }

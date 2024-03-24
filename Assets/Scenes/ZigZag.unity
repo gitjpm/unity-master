@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lado: 10
   separacion: 1.1
-  intervalo: 0.1
+  intervalo: 0.3
 --- !u!4 &434955670
 Transform:
   m_ObjectHideFlags: 0
