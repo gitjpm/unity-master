@@ -12,6 +12,7 @@ public class MovimientoArray : MonoBehaviour
         StartCoroutine(MoverEntrePuntos(puntos, velocidad));
     }
 
+    // movimiento a una velocidad constante
     IEnumerator MoverEntrePuntos(Vector3[] puntos, float velocidad)
     {
         if (puntos.Length < 2) yield break;
