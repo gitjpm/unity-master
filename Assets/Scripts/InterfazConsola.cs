@@ -6,13 +6,13 @@ public class InterfazConsola : MonoBehaviour
 {
     private void OnEnable()
     {
-        EventosSeguimientoEvasionRespawn.ActualizarPosicionRespawns += MostrarRespawn;
+        EventosAlRespawn.ActualizarPosicionRespawns += ConsolaMostrarRespawn;
     }
     private void OnDisable()
     {
-        EventosSeguimientoEvasionRespawn.ActualizarPosicionRespawns -= MostrarRespawn;
+        EventosAlRespawn.ActualizarPosicionRespawns -= ConsolaMostrarRespawn;
     }
-    private void MostrarRespawn(Vector3 posicionRespawn)
+    private void ConsolaMostrarRespawn(Vector3 posicionRespawn)
     {
         Debug.Log($"Respawn en: {posicionRespawn}");
     }

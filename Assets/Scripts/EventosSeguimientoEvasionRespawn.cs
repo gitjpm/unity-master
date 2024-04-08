@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventosSeguimientoEvasionRespawn : MonoBehaviour
+public class EventosAlRespawn : MonoBehaviour
 {
     // eventos para actualizar la cantidad de respawns y la posicion de respawn
-    public delegate void EventoCantidadRespawn(int n);
-    public static event EventoCantidadRespawn ActualizarCantidadRespawns;
-    public delegate void EventoPosicionRespawn(Vector3 v);
-    public static event EventoPosicionRespawn ActualizarPosicionRespawns;
+    public delegate void DelegadoDeActualizarRespawns(int n);
+    public static event DelegadoDeActualizarRespawns ActualizarRespawns;
+    public delegate void DelegadoDeActualizarPosicion(Vector3 v);
+    public static event DelegadoDeActualizarPosicion ActualizarPosicionRespawns;
     private int cantidadRespawns = 0;
 
 
@@ -27,7 +27,7 @@ public class EventosSeguimientoEvasionRespawn : MonoBehaviour
         {
             transform.position = posicionesRespawn[Random.Range(0, posicionesRespawn.Length)];
             // lanzamos los eventos al actualizar la cantidad de respawns
-            ActualizarCantidadRespawns?.Invoke(++cantidadRespawns);
+            ActualizarRespawns?.Invoke(++cantidadRespawns);
             ActualizarPosicionRespawns?.Invoke(transform.position);
 
         }else if(distanciaObjetivo < distanciaSeguimiento){

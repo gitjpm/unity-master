@@ -8,15 +8,15 @@ public class InterfazUsuario : MonoBehaviour
     [SerializeField] private Text cantidadRespawns;
     private void OnEnable()
     {
-        EventosSeguimientoEvasionRespawn.ActualizarCantidadRespawns += ActualizarRespawns;
+        EventosAlRespawn.ActualizarRespawns += UIActualizarRespawns;
     }
 
     private void OnDisable()
     {
-        EventosSeguimientoEvasionRespawn.ActualizarCantidadRespawns -= ActualizarRespawns;
+        EventosAlRespawn.ActualizarRespawns -= UIActualizarRespawns;
     }
 
-    private void ActualizarRespawns(int cantidadRespawns)
+    private void UIActualizarRespawns(int cantidadRespawns)
     {
         this.cantidadRespawns.text = $"Respawns: {cantidadRespawns}";
     }
